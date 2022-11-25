@@ -6,6 +6,7 @@ import {
     Message,
     RatingOption,
     RatingSelect,
+    SelectedRatingDisplay,
     SubmitButton,
     Title
 } from "./styles";
@@ -30,7 +31,6 @@ export function InteractiveRating () {
         }
 
         console.log("Selected rate: " + selectedRating)
-        setSelectedRating(0)
         setRatingHasBeenSent(true)
     }
 
@@ -39,7 +39,16 @@ export function InteractiveRating () {
             {ratingHasBeenSent ?
                 (
                     <Content isCentralized={true}>
-                        <h1>Thank you!</h1>
+                        <img src='/thank-you.svg' alt='' />
+                        <SelectedRatingDisplay>
+                            <span>
+                                {`You selected ${selectedRating} out of ${gradeOptions[gradeOptions.length - 1]}`}
+                            </span>
+                        </SelectedRatingDisplay>
+                        <Title>Thank you!</Title>
+                        <Message isCentralized={true}>
+                            We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!
+                        </Message>
                     </Content>
                 )
                 :

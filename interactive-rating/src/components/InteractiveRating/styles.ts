@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    max-width: 450px;
+    max-width: 420px;
     width: 100%;
-    
+
     background-color: #212832;
 
     border-radius: 20px;
@@ -46,7 +46,11 @@ export const Title = styled.strong`
    
 `
 
-export const Message = styled.span`
+type MessageProps = {
+    isCentralized?: boolean
+}
+
+export const Message = styled.span<MessageProps>`
     display: block;
 
     margin-top: 1rem;
@@ -54,6 +58,7 @@ export const Message = styled.span`
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5;
+    text-align: ${props => props.isCentralized ? 'center' : 'left'};
     
     color: #878d97;
 `
@@ -111,5 +116,21 @@ export const SubmitButton = styled.button`
         transition: color 0.5s background-color 0.5s;
         background-color: #fff;
         color: #fc7613;
+    }
+`
+
+export const SelectedRatingDisplay = styled.div`
+    margin-top: 2rem;
+    padding: 0.25rem 1rem;
+
+    background-color: #233038;
+
+    border-radius: 20px;
+
+    span {
+        color: #fc7613;
+
+        font-size: 0.875rem;
+        font-weight: 400;
     }
 `
