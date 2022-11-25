@@ -38,7 +38,7 @@ export const Title = styled.strong`
 export const Message = styled.span`
     display: block;
 
-    margin-top: 1.25rem;
+    margin-top: 1rem;
 
     font-size: 1rem;
     font-weight: 500;
