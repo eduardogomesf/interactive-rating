@@ -4,7 +4,15 @@ import { Container, IconContainer, Message, RatingOption, RatingSelect, SubmitBu
 const gradeOptions = [1, 2, 3, 4, 5]
 
 export function InteractiveRating () {
-    const [selectedGrade, setSelectedGrade] = useState(1)
+    const [selectedGrade, setSelectedGrade] = useState(0)
+
+    function handleSelectGrade (grade: number) {
+        if (grade === selectedGrade) {
+            setSelectedGrade(0)
+        } else {
+            setSelectedGrade(grade)
+        }
+    }
 
     return (
         <Container>
@@ -23,13 +31,16 @@ export function InteractiveRating () {
                     <RatingOption
                         key={grade}
                         isSelected={grade === selectedGrade}
+                        onClick={() => handleSelectGrade(grade)}
                     >
                         {grade}
                     </RatingOption>
                 ))}
             </RatingSelect>
 
-            <SubmitButton>
+            <SubmitButton
+                disabled={!selectedGrade}
+            >
                 SUBMIT
             </SubmitButton>
         </Container>
