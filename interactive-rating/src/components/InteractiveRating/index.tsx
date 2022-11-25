@@ -14,6 +14,15 @@ export function InteractiveRating () {
         }
     }
 
+    function handleSendRating () {
+        if (!selectedGrade) {
+            return
+        }
+
+        console.log(selectedGrade)
+        setSelectedGrade(0)
+    }
+
     return (
         <Container>
             <IconContainer>
@@ -40,6 +49,7 @@ export function InteractiveRating () {
 
             <SubmitButton
                 disabled={!selectedGrade}
+                onClick={handleSendRating}
             >
                 SUBMIT
             </SubmitButton>
