@@ -19,5 +19,12 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const GlobalContentContainer = styled.main`
+    height: 100vh;
+    width: 100vw;
+    
+    padding: 0 2rem;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
