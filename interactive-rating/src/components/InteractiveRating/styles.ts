@@ -70,7 +70,7 @@ export const RatingOption = styled.button<RatingOptionProps>`
     border: none;
     border-radius: 50%;
 
-    :hover {
+    &:hover {
         transition: background-color 0.5s color 0.5s;
         background-color: #fc7612;
         color: #e8edf0;
@@ -94,5 +94,11 @@ export const SubmitButton = styled.button`
         transition: opacity 0.7;
         opacity: 0.7;
         cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+        transition: color 0.5s background-color 0.5s;
+        background-color: #fff;
+        color: #fc7613;
     }
 `
