@@ -3,11 +3,22 @@ import styled from "styled-components";
 export const Container = styled.div`
     max-width: 450px;
     width: 100%;
-    padding: 2rem;
-
+    
     background-color: #212832;
 
     border-radius: 20px;
+`
+
+type ContentProps = {
+    isCentralized?: boolean
+}
+
+export const Content = styled.div<ContentProps>`
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: ${props => props.isCentralized ? 'center' : 'flex-start'};
 `
 
 export const IconContainer = styled.div`

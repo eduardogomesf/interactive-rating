@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { Container, IconContainer, Message, RatingOption, RatingSelect, SubmitButton, Title } from "./styles";
+import {
+    Container,
+    Content,
+    IconContainer,
+    Message,
+    RatingOption,
+    RatingSelect,
+    SubmitButton,
+    Title
+} from "./styles";
 
 const gradeOptions = [1, 2, 3, 4, 5]
 
@@ -29,13 +38,13 @@ export function InteractiveRating () {
         <Container>
             {ratingHasBeenSent ?
                 (
-                    <>
+                    <Content isCentralized={true}>
                         <h1>Thank you!</h1>
-                    </>
+                    </Content>
                 )
                 :
                 (
-                    <>
+                    <Content>
                         <IconContainer>
                             <img src='/star.svg' alt="yellow star" />
                         </IconContainer>
@@ -64,7 +73,7 @@ export function InteractiveRating () {
                         >
                             SUBMIT
                         </SubmitButton>
-                    </>
+                    </Content>
                 )
 
             }
