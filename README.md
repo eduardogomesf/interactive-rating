@@ -19,4 +19,4 @@ npm run dev
 ## Check out below some of the projects
 
 ### Interactive Rating component 
-![interactive-rating](https://user-images.githubusercontent.com/58858236/204040985-3c31b308-6824-4f5e-9e8b-156b8c0b15f4.PNG)
+![rating](https://user-images.githubusercontent.com/58858236/204041881-10708f64-dc05-4af4-8f49-76d51ff05c29.PNG)
