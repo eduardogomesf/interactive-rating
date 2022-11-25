@@ -5,6 +5,7 @@ const gradeOptions = [1, 2, 3, 4, 5]
 
 export function InteractiveRating () {
     const [selectedGrade, setSelectedGrade] = useState(0)
+    const [gradeHasBeenSent, setGradeHasBeenSent] = useState(false)
 
     function handleSelectGrade (grade: number) {
         if (grade === selectedGrade) {
@@ -19,40 +20,54 @@ export function InteractiveRating () {
             return
         }
 
-        console.log(selectedGrade)
+        console.log("Selected rate: " + selectedGrade)
         setSelectedGrade(0)
+        setGradeHasBeenSent(true)
     }
 
     return (
         <Container>
-            <IconContainer>
-                <img src='/star.svg' alt="yellow star" />
-            </IconContainer>
+            {gradeHasBeenSent ?
+                (
+                    <>
+                        <h1>Thank you!</h1>
+                    </>
+                )
+                :
+                (
+                    <>
+                        <IconContainer>
+                            <img src='/star.svg' alt="yellow star" />
+                        </IconContainer>
 
-            <Title>How did we go?</Title>
+                        <Title>How did we go?</Title>
 
-            <Message>
-                Please let us know how we did with your support request. All feedback is appreciated to help us improve your offering!
-            </Message>
+                        <Message>
+                            Please let us know how we did with your support request. All feedback is appreciated to help us improve your offering!
+                        </Message>
 
-            <RatingSelect>
-                {gradeOptions.map(grade => (
-                    <RatingOption
-                        key={grade}
-                        isSelected={grade === selectedGrade}
-                        onClick={() => handleSelectGrade(grade)}
-                    >
-                        {grade}
-                    </RatingOption>
-                ))}
-            </RatingSelect>
+                        <RatingSelect>
+                            {gradeOptions.map(grade => (
+                                <RatingOption
+                                    key={grade}
+                                    isSelected={grade === selectedGrade}
+                                    onClick={() => handleSelectGrade(grade)}
+                                >
+                                    {grade}
+                                </RatingOption>
+                            ))}
+                        </RatingSelect>
 
-            <SubmitButton
-                disabled={!selectedGrade}
-                onClick={handleSendRating}
-            >
-                SUBMIT
-            </SubmitButton>
+                        <SubmitButton
+                            disabled={!selectedGrade}
+                            onClick={handleSendRating}
+                        >
+                            SUBMIT
+                        </SubmitButton>
+                    </>
+                )
+
+            }
         </Container>
     )
 }
