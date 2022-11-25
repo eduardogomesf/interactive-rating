@@ -84,9 +84,15 @@ export const SubmitButton = styled.button`
     
     background-color: #fc7613;
     color: #fff;
-    
+
     border: none;
     border-radius: 25px;
 
     letter-spacing: 0.15rem;
+
+    &:disabled {
+        transition: opacity 0.7;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
 `
