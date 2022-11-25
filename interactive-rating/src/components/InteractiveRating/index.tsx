@@ -4,30 +4,30 @@ import { Container, IconContainer, Message, RatingOption, RatingSelect, SubmitBu
 const gradeOptions = [1, 2, 3, 4, 5]
 
 export function InteractiveRating () {
-    const [selectedGrade, setSelectedGrade] = useState(0)
-    const [gradeHasBeenSent, setGradeHasBeenSent] = useState(false)
+    const [selectedRating, setSelectedRating] = useState(0)
+    const [ratingHasBeenSent, setRatingHasBeenSent] = useState(false)
 
-    function handleSelectGrade (grade: number) {
-        if (grade === selectedGrade) {
-            setSelectedGrade(0)
+    function handleSelectRating (grade: number) {
+        if (grade === selectedRating) {
+            setSelectedRating(0)
         } else {
-            setSelectedGrade(grade)
+            setSelectedRating(grade)
         }
     }
 
     function handleSendRating () {
-        if (!selectedGrade) {
+        if (!selectedRating) {
             return
         }
 
-        console.log("Selected rate: " + selectedGrade)
-        setSelectedGrade(0)
-        setGradeHasBeenSent(true)
+        console.log("Selected rate: " + selectedRating)
+        setSelectedRating(0)
+        setRatingHasBeenSent(true)
     }
 
     return (
         <Container>
-            {gradeHasBeenSent ?
+            {ratingHasBeenSent ?
                 (
                     <>
                         <h1>Thank you!</h1>
@@ -50,8 +50,8 @@ export function InteractiveRating () {
                             {gradeOptions.map(grade => (
                                 <RatingOption
                                     key={grade}
-                                    isSelected={grade === selectedGrade}
-                                    onClick={() => handleSelectGrade(grade)}
+                                    isSelected={grade === selectedRating}
+                                    onClick={() => handleSelectRating(grade)}
                                 >
                                     {grade}
                                 </RatingOption>
@@ -59,7 +59,7 @@ export function InteractiveRating () {
                         </RatingSelect>
 
                         <SubmitButton
-                            disabled={!selectedGrade}
+                            disabled={!selectedRating}
                             onClick={handleSendRating}
                         >
                             SUBMIT
