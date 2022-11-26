@@ -1,5 +1,7 @@
 # Interactive Rating component
 
+A interactive rating component built with Reactjs
+
 ![rating](https://user-images.githubusercontent.com/58858236/204041881-10708f64-dc05-4af4-8f49-76d51ff05c29.PNG)
 
 ## How to run the project locally
